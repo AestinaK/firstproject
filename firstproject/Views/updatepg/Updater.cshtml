@@ -1,0 +1,300 @@
+﻿@model firstproject.Models.Addpg
+
+@{
+    Layout = "_layoutOwner";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<style>
+
+    *[role="form"] h2 {
+        color: black;
+        z-index: 2;
+        margin-left: 6em;
+        margin-bottom: 1em;
+        color: deepskyblue;
+    }
+
+    *[role="form"] h5 {
+        margin-right: 50px;
+        margin: 10px 0;
+    }
+
+    *[role="form"] checkbox {
+        margin: 5px 20px 10px 0;
+    }
+
+    *[role="form"] button {
+        width: 150px;
+        padding: 10px;
+        border: none;
+        margin-left: 4em;
+        border-radius: 5px;
+        background-color: deepskyblue;
+        font-size: 16px;
+        color: black;
+        cursor: pointer;
+    }
+
+        *[role="form"] button:hover {
+            background-color: greenyellow;
+        }
+
+    *[role="form"] {
+        max-width: 700px;
+        margin-top: 20px;
+        padding: 20px;
+        margin: 0 auto;
+        background-color: #FFFFFF;
+        border-radius: 0.5em;
+        border-color: deepskyblue;
+        width: 50%;
+        box-shadow: 0 0 20px 0 #095484;
+    }
+</style>
+
+
+
+<div class="container">
+    <form class="form-horizontal" role="form" method="post" asp-controller="Updatepg" asp-action="Updat">
+        <h2>Add your pg</h2>
+        <div class="form-group">
+            <input type="text" value="@ViewBag.d.id" name="id" hidden />
+            <label for="Title" class="col-sm-3 control-label">Update your pg:</label>
+            <div class="col-sm-9">
+                <input type="text" value="@ViewBag.d.title" name="title" id="Title" placeholder="Title of your pg" class="form-control" autofocus>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Type" class="col-sm-3 control-label">Type:</label>
+            <div class="col-sm-9">
+                <select id="Type" class="form-control" name="type">
+                    <option>@ViewBag.d.type</option>
+                    <option selected value="true">who can offer</option>
+                    <option>Girls</option>
+                    <option>Boys</option>
+                    <option>Both</option>
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="district" class="col-sm-3 control-label">District:</label>
+            <div class="col-sm-9">
+                <select id="district" class="form-control" name="district">
+                    <option>@ViewBag.d.district</option>
+                    <option selected value="true">select district</option>
+                    <option>Ilam</option>
+                    <option>Jhapa</option>
+                    <option>Kathmandu</option>
+                    <option>Biratnagar</option>
+                    <option>Sunsari</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="City" class="col-sm-3 control-label">City:</label>
+            <div class="col-sm-9">
+                <input type="text" name="city" value="@ViewBag.d.city" id="City" placeholder="City" class="form-control" autofocus>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Rent" class="col-sm-3 control-label">Rent per month:</label>
+            <div class="col-sm-9">
+                <input type="number" name="rent" id="Rent" value="@ViewBag.d.rent" placeholder="Rent per month" class="form-control" autofocus>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Rooms" class="col-sm-3 control-label">Number of rooms:</label>
+            <div class="col-sm-9">
+                <input type="number" name="rooms" id="Rooms" value="@ViewBag.d.rooms" placeholder="Number of rooms:" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Email" class="col-sm-3 control-label">Email:</label>
+            <div class="col-sm-9">
+                <input type="email" name="email" id="Email" value="@ViewBag.d.email" placeholder="Email" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address" class="col-sm-3 control-label">Address:</label>
+            <div class="col-sm-9">
+                <input type="text" name="address" id="address" value="@ViewBag.d.address" placeholder="Address" class="form-control">
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Picture" class="col-sm-3 control-label">Picture:</label>
+            <div class="col-sm-9">
+                <input id="picture" type="file" value="@ViewBag.d.picture" name="picture" />
+            </div>
+        </div>
+        <h5>Facilities*</h5>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Electricity:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="ERadio" name="electricity" value="@ViewBag.d.electricity Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="eRadio" name="electricity" value="@ViewBag.d.electricity No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">AC:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="ARadio" name="ac" value="@ViewBag.d.ac Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="aRadio" name="ac" value="@ViewBag.d.ac No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Fan:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="FaRadio"  name="fan" value="@ViewBag.d.fan Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="faRadio" name="fan" value="@ViewBag.d.fan No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Parking:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="PRadio" name="parking" value="@ViewBag.d.parking Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="pRadio" name="parking" value="@ViewBag.d.parking No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Fully Furnished:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="FRadio"  name="furnished" value="@ViewBag.d.furnished Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="fRadio"  name="furnished" value="@ViewBag.d.furnished No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Internet:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="IRadio" name="internet" value="@ViewBag.d.internet Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="eRadio"  name="internet" value="@ViewBag.d.internet No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Balcony:</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="SRadio"  name="security" value="@ViewBag.d.security Yes">Yes
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="sRadio" name="security" value="@ViewBag.d.security No">No
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Type" class="col-sm-3 control-label">Type of room:</label>
+            <div class="col-sm-9">
+                <select id="Type" class="form-control" name="types" value="@ViewBag.d.types">
+                    <option value="true" selected>select type of your room</option>
+                    <option>Normal</option>
+                    <option>Premium</option>
+                    <option>Super</option>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block" value="Insert">Update</button>
+            </div>
+        </div>
+
+    </form>
+
+
+
+    <!-- /form -->
+</div> <!-- ./container -->

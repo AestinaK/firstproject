@@ -1,0 +1,122 @@
+﻿@model firstproject.Models.Addpg
+@{
+    Layout = "_layoutOwner";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    
+    @section Scripts{
+        <script type="text/javascript">$(document).ready(function () {
+                $('#datatable').DataTable();
+            });</script> 
+    }
+
+    <style>
+        html {
+            border-color: deepskyblue;
+            width: 1000px;
+        }
+
+        .container {
+            margin-left: 250px;
+        }
+
+        table {
+            margin-top: 40px;
+        }
+
+        thead {
+            background-color: deepskyblue;
+        }
+
+        input {
+            width: 500px;
+            margin-top: 30px;
+            margin-left: 250px;
+            height: 50px;
+            border-radius: 7px;
+        }
+
+        button {
+            border-radius: 7px;
+            height: 40px;
+            color: black;
+            width: 120px;
+        }
+    </style>
+    <center>
+        <div class="search">
+            <input type="text" name="searchtext" placeholder="Search here to update your pg" />
+            <button class="btn-outline-primary" value="search">Search</button>
+        </div><br />
+        <div class="container">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatable">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Picture</th>
+                            <th>District</th>
+                            <th>City</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 1;
+                        }
+                        @foreach (var pg in ViewBag.d)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@pg.title</td>
+                                <td>@pg.type</td>
+                                <td><img src=@pg.picture class="rounded_circle" height="80" width="120" asp-append-version="true"/></td>
+                                <td>@pg.district</td>
+                                <td>@pg.city</td>
+
+
+
+                                <td>
+                                    <a  asp-controller="Updatepg" asp-action="Updater" asp-route-id="@pg.id"
+                                         onclick="return confirm('Are you sure to update accommodation with title : @pg.title')" class="btn btn-primary">Update</a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Updatepg" asp-action="Delete" asp-route-id="@pg.id" 
+                                       onclick="return confirm('Are you sure to delete accommodation with title: @pg.title')" class="btn btn-primary">Delete</a>
+                                </td>
+
+                            </tr>
+                            i++;
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </center>
+
+</body>
+</html>
+
+
+

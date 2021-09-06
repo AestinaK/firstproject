@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "_layoutOwner";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <style>
+        html {
+            border-color: deepskyblue;
+            width: 1000px;
+        }
+
+        .container {
+            margin-left: 250px;
+        }
+
+        table {
+            margin-top: 40px;
+        }
+
+        thead {
+            background-color: deepskyblue;
+        }
+
+        input {
+            width: 500px;
+            margin-top: 30px;
+            margin-left: 250px;
+            height: 50px;
+            border-radius: 7px;
+        }
+
+        button {
+            border-radius: 7px;
+            height: 40px;
+            color: black;
+            width: 120px;
+        }
+    </style>
+    <center>
+        <div class="search">
+            <input type="text" placeholder="Search here to delete your pg" />
+            <button class="btn-outline-primary">Search</button>
+        </div><br />
+        <div class="container">
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>S.N</th>
+                            <th>Title</th>
+                            <th>Picture</th>
+                            <th>Type</th>
+                            <th>District</th>
+                            <th>City</th>
+                            <th>Rent</th>
+                            <th>Rooms</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Picture</th>
+                            <th>Electricity</th>
+                            <th>AC</th>
+                            <th>Fan</th>
+                            <th>Parking</th>
+                            <th>Fully Furnished</th>
+                            <th>Internet</th>
+                            <th>Balcony</th>
+                            <th>Types</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int i = 1;
+                        }
+                        @foreach (var pg in ViewBag.data)
+                        {
+                        <tr>
+                            <td>@i</td>
+                            <td>@pg.title</td>
+                            <td>@pg.type</td>
+                            <td>@pg.district</td>
+                            <td>@pg.city</td>
+                            <td>@pg.rent</td>
+                            <td>@pg.rooms</td>
+                            <td>@pg.email</td>
+                            <td>@pg.address</td>
+                            <td>@pg.picture</td>
+                            <td>@pg.electricity</td>
+                            <td>@pg.ac</td>
+                            <td>@pg.fan</td>
+                            <td>@pg.parking</td>
+                            <td>@pg.furnished</td>
+                            <td>@pg.internet</td>
+                            <td>@pg.security</td>
+                            <td>@pg.types</td>
+
+                            <td>
+                                <a href="/Deletepg/Delete?id=@pg.id" class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                            i++;
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </center>
+
+</body>
+</html>
+
+
+

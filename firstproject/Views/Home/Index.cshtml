@@ -1,0 +1,97 @@
+﻿@model firstproject.Models.Addpg
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
+
+
+<center>
+    <div>
+
+        <h1 class="font-weight-lighter" style="margin-top:160px;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Get closer to your destination!</h1>
+    </div>
+
+    <div class="s01">
+        <form>
+            <fieldset>
+                <legend>Search PG Properties</legend>
+            </fieldset>
+            <div class="inner-form">
+                <div class="input-field first-wrap">
+                    <input id="districts" type="text" name="search" placeholder="Enter District" />
+                </div>
+                <div class="input-field second-wrap">
+                    <input id="location" type="text" placeholder="Enter City" />
+                </div>
+                <div class="input-field third-wrap">
+                    <button class="btn-search" type="button">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</center>
+<div class="row">
+
+    @{
+        int i = 1;
+    }
+    @foreach (var pg in ViewBag.d)
+    {
+        <div class="col-lg-4">
+            <img class="rounded_circle thumbnail" src=@pg.picture
+                 height="80" width="120" asp-append-version="true">
+            <div class="box-element product">
+                <h5>@pg.title</h5>
+                <a class=" btn btn-info" 
+                   asp-controller="Details" asp-action="viewaccommodation" asp-route-id="@pg.id">View Details</a>
+
+            </div>
+        </div>
+        i++;
+    }
+
+</div>
+
+
+
+<style>
+    .thumbnail {
+        width: 100%;
+        height: 200px;
+        -webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+        box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    }
+
+
+    .col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12 {
+        margin-top: 35px;
+        float: left;
+    }
+
+
+    .btn {
+        float: initial;
+        border-radius: 0;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    a:hover {
+        background-color: greenyellow;
+    }
+
+    a .bg-info:hover {
+        background-color: greenyellow;
+    }
+
+    h5 {
+        background-color: greenyellow;
+        color: black;
+    }
+</style>
+
+
+
+

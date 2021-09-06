@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Message\message.cshtml" />
+    <Content Remove="wwwroot\image\back.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Message\message.cshtml" />
+    <None Include="wwwroot\image\back.jpg" />
+    <None Include="wwwroot\js\extention\choices.js" />
+    <None Include="wwwroot\js\extention\custom-materialize.js" />
+    <None Include="wwwroot\js\extention\flatpickr.js" />
+    <None Include="wwwroot\lib\jquery-datatables\js\jquery.dataTables.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\image\pgimage\" />
+    <Folder Include="wwwroot\pgimage\" />
+  </ItemGroup>
+
+
+
+</Project>

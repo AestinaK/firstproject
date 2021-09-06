@@ -1,0 +1,164 @@
+﻿@model firstproject.Models.Addpg
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
+
+<style>
+    #success_message {
+        display: none;
+    }
+    h4,h5{
+        margin-right:10px;
+    }
+    h3 {
+        color: black;
+        font-family: Optima, sans-serif;
+    }
+    label {
+        
+            font-size:15px;
+        font-style: normal;
+        font-weight:normal;
+        color:black;
+    }
+    form {
+        width:500px;
+        margin-top:40px;
+        background-color:lightsteelblue;
+        box-sizing: border-box;
+       border:5px crimson;
+       border-radius:3px 4px;
+    }
+    button{
+        margin-bottom:10px;
+    }
+    button:hover{
+        background-color:lightgreen;
+    }
+</style>
+@*//class="well form-horizontal"*@
+<center>
+    <div class="container">
+
+        <form class=" col-md-offset-3 col-md-6" method="post" id="contact_form"
+              asp-controller="Details" asp-action="viewaccommodation">
+
+            <h3>
+                Welcome to @ViewBag.d.title
+            </h3>
+            <br />
+            <div class="form-group col col-6">
+                <input type="text" value="@ViewBag.d.id" name="id" hidden />
+                <label class="col-md-4 control-label" hidden>picture</label>
+
+                <img src=@ViewBag.d.picture class="rounded_circle" height="200" width="350" asp-append-version="true" />
+            </div>
+            <br />
+            <div class="row">
+                <div>
+                    <h5>  Discription</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>  Location</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>  -:Located near @ViewBag.d.address,@ViewBag.d.city,@ViewBag.d.district.</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>  Rent:</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6> -:@ViewBag.d.rent for @ViewBag.d.rooms rooms </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>  Email address of owner</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:@ViewBag.d.email</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>
+                        Who can offer this?
+                    </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>
+
+                        -: @ViewBag.d.type can offer for this accommodation.
+                    </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>The property offers you with following facilities-</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6> -: Electricity:@ViewBag.d.electricity</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6> -:Ac:@ViewBag.d.ac</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:Fan:@ViewBag.d.fan</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:Parking:@ViewBag.d.parking</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:Fully furnished:@ViewBag.d.furnished</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:Internet:@ViewBag.d.internet</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <h6>-:Balcony:@ViewBag.d.security</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-6">
+                    <button type="submit" class="btn btn-primary">Back</button>
+                </div>
+                <div class="col col-6">
+                    <button type="submit" asp-controller="Message" asp-action="message" class="btn btn-primary">Message</button>
+                </div>
+            </div>
+            
+
+
+
+
+        </form>
+    </div>
+</center>

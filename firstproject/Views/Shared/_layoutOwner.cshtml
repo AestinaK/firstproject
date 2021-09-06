@@ -1,0 +1,75 @@
+﻿@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/lib/jquery-datatables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/lib/jquery-datatables/js/jquery.dataTables.min.js"></script>
+    <!-- The sidebar -->
+    <style>
+        body {
+            background-image: url('/image/owns2.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 220px;
+            background-color: deepskyblue;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+            /* Style sidebar links */
+            .sidebar a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: black;
+                display: block;
+            }
+
+                .sidebar a.active {
+                    background-color: greenyellow;
+                    color: black;
+                }
+                /* Style links on mouse-over */
+                .sidebar a:hover {
+                    background-color: greenyellow;
+                    color: black;
+                }
+
+        /* Style the main content */
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <center><img src="~/image/logo.png" class="rounded" alt="Cinque Terre" height="50px" width="fit-content"></center><br />
+        <a href="#home" class="active"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a asp-controller="Addpg" asp-action="Add" style="text-decoration:none;margin-top:10px;"><i class="fa fa-fw fa-plus"></i> Add PG</a>
+        <a asp-controller="Updatepg" asp-action="Update" style="text-decoration:none;margin-top:10px;"><i class="fa fa-fw fa-eye"></i> View PG</a>
+        <a style="text-decoration: none; margin-top: 10px;"><i class="fa fa-fw fa-envelope"></i>Message</a>
+        <a asp-controller="Owncon" asp-action="dex" style="text-decoration:none;margin-top:10px;"><i class="fa fa-fw fa-phone"></i> Contact Us</a>
+        <a style="text-decoration:none;margin-right:10px;"><i class="fa fa-fw fa-user"></i>About Us</a>
+        <a style="text-decoration:none;margin-top:10px;"><i class="fa fa-fw fa-exchange"></i>Change Password</a>
+        <a style="text-decoration:none;margin-top:10px;" asp-controller="Logoutpg" asp-action="logout"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+    </div>
+    <div>
+        @RenderBody();
+    </div>
+</body>
+</html>
+@RenderSection("Scripts", required: false)
